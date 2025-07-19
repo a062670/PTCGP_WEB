@@ -1,0 +1,17 @@
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin hoverUnderline() {
+  text-decoration: none;
+  background: linear-gradient(to right, currentColor, currentColor) 0 min(100%, 1.35em) / 0 1px
+    no-repeat;
+  transition: background-size 0.3s;
+  @include hover {
+    background-size: 100% 1px;
+  }
+}

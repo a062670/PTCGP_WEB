@@ -1,0 +1,16 @@
+{
+  "dev": {
+    "apiUrl": "",
+    "discord": {
+      "clientId": "",
+      "redirectUri": "http://localhost:9000/callback"
+    }
+  },
+  "prod": {
+    "apiUrl": "",
+    "discord": {
+      "clientId": "",
+      "redirectUri": "https://xxx.xxx.xx/callback"
+    }
+  }
+}

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>車輛管理系統</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+    <style>
+      .small {
+        font-size: 0.8rem;
+      }
+      .thread-card:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      .tab.active {
+        background-color: #0d6efd;
+        color: white;
+      }
+
+      /* 標籤切換樣式 */
+      .show-all .thread-item {
+        display: block;
+      }
+      .show-all .thread-item[data-delete="true"] {
+        display: none;
+      }
+      .show-all .btn-restore {
+        display: none;
+      }
+
+      .show-gp .thread-item {
+        display: block;
+      }
+      .show-gp .thread-item[data-test="true"],
+      .show-gp .thread-item[data-delete="true"] {
+        display: none;
+      }
+      .show-gp .btn-restore {
+        display: none;
+      }
+
+      .show-deleted .thread-item {
+        display: none;
+      }
+      .show-deleted .thread-item[data-delete="true"] {
+        display: block;
+      }
+      .show-deleted .btn-delete {
+        display: none;
+      }
+
+      /* 深色模式樣式 */
+      body.dark-mode {
+        background-color: #121212 !important;
+        color: #e0e0e0;
+      }
+
+      body.dark-mode .navbar {
+        background-color: #1e1e1e !important;
+      }
+
+      body.dark-mode .card {
+        background-color: #1e1e1e;
+        border-color: #333;
+      }
+
+      body.dark-mode .card-header,
+      body.dark-mode .card-footer {
+        background-color: #252525 !important;
+        border-color: #333;
+      }
+
+      body.dark-mode .card-title,
+      body.dark-mode a {
+        color: #e0e0e0;
+      }
+
+      body.dark-mode .btn-outline-primary {
+        color: #81b4fe;
+        border-color: #81b4fe;
+      }
+
+      body.dark-mode .btn-outline-primary:hover,
+      body.dark-mode .btn-outline-primary.active {
+        background-color: #2a4a80;
+        color: #fff;
+        border-color: #2a4a80;
+      }
+
+      body.dark-mode .btn-outline-secondary {
+        color: #b0b0b0;
+        border-color: #555;
+      }
+
+      body.dark-mode .btn-outline-secondary:hover {
+        background-color: #555;
+        color: #fff;
+      }
+
+      body.dark-mode .btn-outline-success {
+        color: #75c375;
+        border-color: #75c375;
+      }
+
+      body.dark-mode .btn-outline-danger {
+        color: #ff7575;
+        border-color: #ff7575;
+      }
+
+      body.dark-mode .form-control {
+        background-color: #333;
+        border-color: #555;
+        color: #e0e0e0;
+      }
+
+      body.dark-mode .text-muted {
+        color: #aaa !important;
+      }
+
+      /* 深色模式切換按鈕樣式 */
+      .dark-mode-toggle {
+        cursor: pointer;
+        padding: 5px 10px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      .dark-mode-toggle i {
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <i class="bi bi-car-front"></i> <%= carId %>車
+        </a>
+        <div class="ms-auto d-flex align-items-center">
+          <span class="text-white me-2 data-time"> <%= threads.time %> </span>
+          <!-- 深色模式切換按鈕 -->
+          <button class="btn btn-outline-light me-2" id="darkModeToggle">
+            <i class="bi bi-moon"></i>
+          </button>
+          <!-- 刷新按鈕，白色 -->
+          <button class="btn btn-outline-light" onclick="location.reload()">
+            <i class="bi bi-arrow-clockwise"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container pb-4">
+      <div class="row mb-4">
+        <div class="col-12">
+          <div class="btn-group w-100">
+            <button
+              type="button"
+              class="btn btn-outline-primary active"
+              data-tab="all"
+            >
+              全部
+            </button>
+            <button type="button" class="btn btn-outline-primary" data-tab="gp">
+              有效
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              data-tab="deleted"
+            >
+              回收
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-4 align-items-center">
+        <div class="col">
+          <div class="align-items-center">
+            <div class="input-group w-auto">
+              <input
+                type="text"
+                class="form-control"
+                name="forCopy"
+                value="123"
+                readonly
+              />
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+                data-bs-toggle="tooltip"
+                title="複製"
+                id="copyButton"
+              >
+                <i class="bi bi-clipboard"></i> 複製
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-check form-switch d-inline-block me-3 py-2">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="isShowImage"
+              name="isShowImage"
+            />
+            <label class="form-check-label" for="isShowImage">顯示圖片</label>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"
+        id="thread-list"
+      >
+        <% threads.threads.forEach((thread) => { %>
+        <div
+          class="col thread-item"
+          data-friend="<%= thread.friendId %>"
+          data-test="<%= thread.status === '測試' %>"
+          data-gp="<%= thread.status === '有效' %>"
+        >
+          <div class="card h-100 thread-card" data-deleted data-gp data-test>
+            <div class="card-header bg-transparent">
+              <div class="d-flex justify-content-between align-items-center">
+                <span>
+                  <%= thread.status %> <%= thread.star %> <%= thread.pack %>
+                </span>
+                <span class="text-muted small pl-2 card-time">
+                  <%= thread.createAt %>
+                </span>
+              </div>
+              <a
+                href="<%= thread.link %>"
+                target="_blank"
+                class="card-title mb-0 fw-bold"
+              >
+                <%= thread.name %>
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="image mb-3 thread-image">
+                <% if (thread.image) { %>
+                <img
+                  src="<%= thread.image %>"
+                  class="img-fluid rounded"
+                  alt="<%= thread.name %>"
+                />
+                <% } %>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent">
+              <div class="d-flex justify-content-end">
+                <button class="btn btn-restore btn-outline-success btn-sm me-2">
+                  <i class="bi bi-arrow-counterclockwise"></i> 還原
+                </button>
+                <button class="btn btn-delete btn-outline-danger btn-sm">
+                  <i class="bi bi-trash"></i> 刪除
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/locale/zh-tw.min.js"></script>
+    <script>
+      // 初始化所有工具提示
+      document.addEventListener("DOMContentLoaded", function () {
+        // ========= 初始化所有工具提示 =========
+        (() => {
+          var tooltipTriggerList = [].slice.call(
+            document.querySelectorAll('[data-bs-toggle="tooltip"]')
+          );
+          var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+          });
+        })();
+
+        // ========= 還原/刪除按鈕功能 =========
+        (() => {
+          let deletedFriends =
+            JSON.parse(localStorage.getItem("deletedFriends")) || [];
+          const cards = Array.from(document.querySelectorAll(".thread-item"));
+          // 只留100個
+          deletedFriends = deletedFriends.slice(-100);
+          localStorage.setItem(
+            "deletedFriends",
+            JSON.stringify(deletedFriends)
+          );
+          cards.forEach((card) => {
+            if (deletedFriends.includes(card.getAttribute("data-friend"))) {
+              card.setAttribute("data-delete", "true");
+            }
+          });
+
+          const restoreButtons = document.querySelectorAll(".btn-restore");
+          const deleteButtons = document.querySelectorAll(".btn-delete");
+
+          restoreButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+              const card = button.closest(".thread-item");
+              card.setAttribute("data-delete", "false");
+              const friendId = card.getAttribute("data-friend");
+              deletedFriends = deletedFriends.filter((id) => id !== friendId);
+              localStorage.setItem(
+                "deletedFriends",
+                JSON.stringify(deletedFriends)
+              );
+              updateForCopy();
+            });
+          });
+
+          deleteButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+              const card = button.closest(".thread-item");
+              card.setAttribute("data-delete", "true");
+              const friendId = card.getAttribute("data-friend");
+              deletedFriends.push(friendId);
+              localStorage.setItem(
+                "deletedFriends",
+                JSON.stringify(deletedFriends)
+              );
+              updateForCopy();
+            });
+          });
+        })();
+
+        // ========= 標籤切換功能 =========
+        (() => {
+          const tabButtons = document.querySelectorAll(".btn-group .btn");
+          const threadList = document.getElementById("thread-list");
+
+          // 根據當前選中的標籤更新列表的 class
+          function updateListClass(tabType) {
+            // 移除所有可能的 class
+            threadList.classList.remove("show-all", "show-gp", "show-deleted");
+
+            // 添加對應的 class
+            threadList.classList.add(`show-${tabType}`);
+
+            updateForCopy();
+          }
+
+          // 初始化列表 class（默認顯示全部）
+          updateListClass("all");
+
+          tabButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+              // 更新按鈕樣式
+              tabButtons.forEach((btn) => btn.classList.remove("active"));
+              button.classList.add("active");
+
+              // 更新列表 class
+              const tabType = button.getAttribute("data-tab");
+              updateListClass(tabType);
+            });
+          });
+        })();
+
+        // ========= 複製按鈕功能 =========
+        (() => {
+          document
+            .getElementById("copyButton")
+            .addEventListener("click", function () {
+              const copyText = document.querySelector('input[name="forCopy"]');
+              copyText.select();
+              copyText.setSelectionRange(0, 99999); // 對於移動設備
+
+              navigator.clipboard
+                .writeText(copyText.value)
+                .then(() => {
+                  // 更新工具提示顯示已複製
+                  const tooltip = bootstrap.Tooltip.getInstance(this);
+                  const originalTitle = this.getAttribute(
+                    "data-bs-original-title"
+                  );
+
+                  this.setAttribute("data-bs-original-title", "已複製!");
+                  tooltip.show();
+
+                  // 2秒後恢復原始工具提示
+                  setTimeout(() => {
+                    this.setAttribute("data-bs-original-title", originalTitle);
+                    tooltip.hide();
+                  }, 2000);
+                })
+                .catch((err) => {
+                  console.error("複製失敗: ", err);
+                  alert("複製失敗，請手動複製");
+                });
+            });
+        })();
+
+        // ========= 顯示/隱藏圖片功能 =========
+        (() => {
+          const imageToggle = document.getElementById("isShowImage");
+          const cardBodies = document.querySelectorAll(".card-body");
+
+          // 初始化圖片顯示狀態
+          function updateImagesVisibility() {
+            cardBodies.forEach((cardBody) => {
+              if (imageToggle.checked) {
+                cardBody.style.display = "block";
+              } else {
+                cardBody.style.display = "none";
+              }
+            });
+          }
+
+          // 頁面加載時設置初始狀態
+          updateImagesVisibility();
+
+          // 監聽開關變化
+          imageToggle.addEventListener("change", updateImagesVisibility);
+        })();
+
+        // ========= 深色模式功能 =========
+        (() => {
+          const darkModeToggle = document.getElementById("darkModeToggle");
+          const body = document.body;
+          const icon = darkModeToggle.querySelector("i");
+
+          // 檢查本地存儲中的深色模式設置
+          const isDarkMode = localStorage.getItem("darkMode") === "true";
+
+          // 初始化深色模式
+          if (isDarkMode) {
+            body.classList.add("dark-mode");
+            icon.classList.remove("bi-moon");
+            icon.classList.add("bi-sun");
+          }
+
+          // 切換深色模式
+          darkModeToggle.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+
+            const isDark = body.classList.contains("dark-mode");
+            localStorage.setItem("darkMode", isDark);
+
+            if (isDark) {
+              icon.classList.remove("bi-moon");
+              icon.classList.add("bi-sun");
+            } else {
+              icon.classList.remove("bi-sun");
+              icon.classList.add("bi-moon");
+            }
+          });
+        })();
+
+        // ========= 時間 =========
+        (() => {
+          const dataTime = document.querySelector(".data-time");
+          dataTime.textContent = moment(Number(dataTime.textContent)).format(
+            "MM-DD HH:mm"
+          );
+          const cardTime = document.querySelectorAll(".card-time");
+          cardTime.forEach((time) => {
+            const timeText = time.textContent.trim();
+            // 小於一天轉相對時間
+            if (moment(timeText).diff(moment(), "days") > -1) {
+              time.textContent = moment(timeText).fromNow();
+            } else {
+              time.textContent = moment(timeText).format("MM-DD HH:mm");
+            }
+          });
+        })();
+
+        function updateForCopy() {
+          // 取得目前的 tab
+          const currentTab = document
+            .querySelector(".btn-group .active")
+            .getAttribute("data-tab");
+
+          let cards;
+
+          if (currentTab === "all") {
+            // 取得不包含 data-delete="true" 的卡片
+            cards = document.querySelectorAll(
+              ".thread-item:not([data-delete='true'])"
+            );
+          } else if (currentTab === "gp") {
+            // 取得包含 data-gp="true" 但不包含 data-delete="true" 的卡片
+            cards = document.querySelectorAll(
+              ".thread-item[data-gp='true']:not([data-delete='true'])"
+            );
+          } else if (currentTab === "deleted") {
+            // 取得包含 data-delete="true" 的卡片
+            cards = document.querySelectorAll(
+              ".thread-item[data-delete='true']"
+            );
+          }
+
+          const copyText = document.querySelector('input[name="forCopy"]');
+
+          // 取得卡片中的 friendId
+          const friendIds = Array.from(cards).map((card) =>
+            card.getAttribute("data-friend")
+          );
+          copyText.value = `${friendIds.join("+")}`;
+        }
+      });
+    </script>
+  </body>
+</html>

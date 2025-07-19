@@ -1,0 +1,4 @@
+client/config.json
+server/config.json
+server/key.json
+server/docker/.env
