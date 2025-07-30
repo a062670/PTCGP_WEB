@@ -2600,7 +2600,7 @@ export default {
     image: 'TR_20_000700_00',
   },
   PK_20_008590_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_008590_00',
     rare: 'AR',
@@ -2610,7 +2610,7 @@ export default {
     image: 'PK_20_008590_00',
   },
   PK_20_008640_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_008640_00',
     rare: 'AR',
@@ -2620,7 +2620,7 @@ export default {
     image: 'PK_20_008640_00',
   },
   PK_20_008770_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '二星',
     cardId: 'PK_20_008770_00',
     rare: 'SR',
@@ -2630,7 +2630,7 @@ export default {
     image: 'PK_20_008770_00',
   },
   PK_20_008770_01: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '彩邊',
     cardId: 'PK_20_008770_01',
     rare: 'SAR',
@@ -2640,7 +2640,7 @@ export default {
     image: 'PK_20_008770_01',
   },
   PK_20_008780_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_008780_00',
     rare: 'AR',
@@ -2650,7 +2650,7 @@ export default {
     image: 'PK_20_008780_00',
   },
   PK_20_008830_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_008830_00',
     rare: 'AR',
@@ -2660,7 +2660,7 @@ export default {
     image: 'PK_20_008830_00',
   },
   PK_20_008880_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_008880_00',
     rare: 'AR',
@@ -2670,7 +2670,7 @@ export default {
     image: 'PK_20_008880_00',
   },
   PK_20_008900_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '二星',
     cardId: 'PK_20_008900_00',
     rare: 'SR',
@@ -2680,7 +2680,7 @@ export default {
     image: 'PK_20_008900_00',
   },
   PK_20_008990_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '二星',
     cardId: 'PK_20_008990_00',
     rare: 'SR',
@@ -2690,7 +2690,7 @@ export default {
     image: 'PK_20_008990_00',
   },
   PK_20_008990_01: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '彩邊',
     cardId: 'PK_20_008990_01',
     rare: 'SAR',
@@ -2700,7 +2700,7 @@ export default {
     image: 'PK_20_008990_01',
   },
   PK_20_009020_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_009020_00',
     rare: 'AR',
@@ -2710,7 +2710,7 @@ export default {
     image: 'PK_20_009020_00',
   },
   PK_20_009090_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_009090_00',
     rare: 'AR',
@@ -2720,7 +2720,7 @@ export default {
     image: 'PK_20_009090_00',
   },
   PK_20_009120_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_009120_00',
     rare: 'AR',
@@ -2730,7 +2730,7 @@ export default {
     image: 'PK_20_009120_00',
   },
   PK_20_009130_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_009130_00',
     rare: 'AR',
@@ -2740,7 +2740,7 @@ export default {
     image: 'PK_20_009130_00',
   },
   PK_20_009210_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '二星',
     cardId: 'PK_20_009210_00',
     rare: 'SR',
@@ -2750,7 +2750,7 @@ export default {
     image: 'PK_20_009210_00',
   },
   PK_20_009210_01: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '彩邊',
     cardId: 'PK_20_009210_01',
     rare: 'SAR',
@@ -2760,7 +2760,7 @@ export default {
     image: 'PK_20_009210_01',
   },
   PK_20_009220_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_009220_00',
     rare: 'AR',
@@ -2770,7 +2770,7 @@ export default {
     image: 'PK_20_009220_00',
   },
   PK_20_009250_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_009250_00',
     rare: 'AR',
@@ -2780,7 +2780,7 @@ export default {
     image: 'PK_20_009250_00',
   },
   PK_20_009340_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_009340_00',
     rare: 'AR',
@@ -2790,7 +2790,7 @@ export default {
     image: 'PK_20_009340_00',
   },
   PK_20_009380_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_009380_00',
     rare: 'AR',
@@ -2800,7 +2800,7 @@ export default {
     image: 'PK_20_009380_00',
   },
   PK_20_009390_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '二星',
     cardId: 'PK_20_009390_00',
     rare: 'SR',
@@ -2810,7 +2810,7 @@ export default {
     image: 'PK_20_009390_00',
   },
   PK_20_009390_01: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '彩邊',
     cardId: 'PK_20_009390_01',
     rare: 'SAR',
@@ -2820,7 +2820,7 @@ export default {
     image: 'PK_20_009390_01',
   },
   PK_20_009420_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_009420_00',
     rare: 'AR',
@@ -2830,7 +2830,7 @@ export default {
     image: 'PK_20_009420_00',
   },
   PK_20_009500_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_009500_00',
     rare: 'AR',
@@ -2840,7 +2840,7 @@ export default {
     image: 'PK_20_009500_00',
   },
   PK_20_009560_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '二星',
     cardId: 'PK_20_009560_00',
     rare: 'SR',
@@ -2850,7 +2850,7 @@ export default {
     image: 'PK_20_009560_00',
   },
   PK_20_009560_01: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '彩邊',
     cardId: 'PK_20_009560_01',
     rare: 'SAR',
@@ -2860,7 +2860,7 @@ export default {
     image: 'PK_20_009560_01',
   },
   PK_20_009650_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '二星',
     cardId: 'PK_20_009650_00',
     rare: 'SR',
@@ -2870,7 +2870,7 @@ export default {
     image: 'PK_20_009650_00',
   },
   PK_20_009650_01: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '彩邊',
     cardId: 'PK_20_009650_01',
     rare: 'SAR',
@@ -2880,7 +2880,7 @@ export default {
     image: 'PK_20_009650_01',
   },
   PK_20_009660_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_009660_00',
     rare: 'AR',
@@ -2890,7 +2890,7 @@ export default {
     image: 'PK_20_009660_00',
   },
   PK_20_009680_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '二星',
     cardId: 'PK_20_009680_00',
     rare: 'SR',
@@ -2900,7 +2900,7 @@ export default {
     image: 'PK_20_009680_00',
   },
   PK_20_009680_01: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '彩邊',
     cardId: 'PK_20_009680_01',
     rare: 'SAR',
@@ -2910,7 +2910,7 @@ export default {
     image: 'PK_20_009680_01',
   },
   PK_20_009690_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_009690_00',
     rare: 'AR',
@@ -2920,7 +2920,7 @@ export default {
     image: 'PK_20_009690_00',
   },
   PK_20_009750_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_009750_00',
     rare: 'AR',
@@ -2930,7 +2930,7 @@ export default {
     image: 'PK_20_009750_00',
   },
   PK_20_009790_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_009790_00',
     rare: 'AR',
@@ -2940,7 +2940,7 @@ export default {
     image: 'PK_20_009790_00',
   },
   PK_20_009800_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '二星',
     cardId: 'PK_20_009800_00',
     rare: 'SR',
@@ -2950,7 +2950,7 @@ export default {
     image: 'PK_20_009800_00',
   },
   PK_20_009800_01: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '彩邊',
     cardId: 'PK_20_009800_01',
     rare: 'SAR',
@@ -2960,7 +2960,7 @@ export default {
     image: 'PK_20_009800_01',
   },
   PK_20_009880_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_009880_00',
     rare: 'AR',
@@ -2970,7 +2970,7 @@ export default {
     image: 'PK_20_009880_00',
   },
   PK_20_009940_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_009940_00',
     rare: 'AR',
@@ -2980,7 +2980,7 @@ export default {
     image: 'PK_20_009940_00',
   },
   PK_20_009960_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_009960_00',
     rare: 'AR',
@@ -2990,7 +2990,7 @@ export default {
     image: 'PK_20_009960_00',
   },
   PK_20_010030_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_010030_00',
     rare: 'AR',
@@ -3000,7 +3000,7 @@ export default {
     image: 'PK_20_010030_00',
   },
   PK_20_010040_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '一星',
     cardId: 'PK_20_010040_00',
     rare: 'AR',
@@ -3010,7 +3010,7 @@ export default {
     image: 'PK_20_010040_00',
   },
   PK_20_010050_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '二星',
     cardId: 'PK_20_010050_00',
     rare: 'SR',
@@ -3020,7 +3020,7 @@ export default {
     image: 'PK_20_010050_00',
   },
   TR_20_000760_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '二星',
     cardId: 'TR_20_000760_00',
     rare: 'SR',
@@ -3030,7 +3030,7 @@ export default {
     image: 'TR_20_000760_00',
   },
   TR_20_000770_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '二星',
     cardId: 'TR_20_000770_00',
     rare: 'SR',
@@ -3040,7 +3040,7 @@ export default {
     image: 'TR_20_000770_00',
   },
   TR_20_000780_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '二星',
     cardId: 'TR_20_000780_00',
     rare: 'SR',
@@ -3050,7 +3050,7 @@ export default {
     image: 'TR_20_000780_00',
   },
   TR_20_000790_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '二星',
     cardId: 'TR_20_000790_00',
     rare: 'SR',
@@ -3060,7 +3060,7 @@ export default {
     image: 'TR_20_000790_00',
   },
   TR_20_000800_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '二星',
     cardId: 'TR_20_000800_00',
     rare: 'SR',
@@ -3070,7 +3070,7 @@ export default {
     image: 'TR_20_000800_00',
   },
   TR_20_000810_00: {
-    pack: 'A3',
+    pack: 'A4',
     rareName: '二星',
     cardId: 'TR_20_000810_00',
     rare: 'SR',
