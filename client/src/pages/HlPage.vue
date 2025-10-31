@@ -277,7 +277,20 @@ const minMatchOptions = Array.from({ length: 6 }, (_, i) => ({
   value: i,
 }));
 
-const packsOptions = ['A1', 'A1a', 'A2', 'A2a', 'A2b', 'A3', 'A3a', 'A3b', 'A4', 'A4a', 'A4b'];
+const packsOptions = [
+  'A1',
+  'A1a',
+  'A2',
+  'A2a',
+  'A2b',
+  'A3',
+  'A3a',
+  'A3b',
+  'A4',
+  'A4a',
+  'A4b',
+  'B1',
+];
 
 const cardsOptionsAll = [];
 const cardsOptions = ref([]);
