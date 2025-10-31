@@ -64,7 +64,10 @@ export const useHlAccountForChangeStore = defineStore('hlAccountForChange', {
           `    <string name="devicePassword">${deviceAccount.password}</string>`,
           '</map>',
         ].join('\n');
-        saveAs(new Blob([xml], { type: 'application/xml' }), `${account.nick}.xml`);
+        saveAs(
+          new Blob([xml], { type: 'application/xml' }),
+          `${account.id}_${account.pack_id}_${account.nick}.xml`,
+        );
       } catch (error) {
         console.error(error);
       }
