@@ -441,7 +441,11 @@ app.post("/api/hl/applyAccountForChange", async (req, res) => {
       jsonResponse(res, null, 403, "無此權限", 403);
       return;
     }
-    await hl.applyAccountForChange(decoded.permissions.id, req.body.packId);
+    await hl.applyAccountForChange(
+      decoded.permissions.id,
+      req.body.packId,
+      req.body.language
+    );
     jsonResponse(res, null);
   } catch (error) {
     jsonResponse(res, null, 403, error || "失敗", 403);

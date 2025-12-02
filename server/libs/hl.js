@@ -396,13 +396,14 @@ const getAccountListForChange = async (userId) => {
 };
 
 /** 申請交換用帳號 */
-const applyAccountForChange = async (userId, packId) => {
+const applyAccountForChange = async (userId, packId, language) => {
   // 先查詢第一個可用的帳號
   const { data: availableAccounts, error: selectError } = await supabase
     .from("account_for_change")
     .select("id")
     .is("user_id", null)
     .eq("pack_id", packId)
+    .eq("language", language)
     .limit(1);
 
   if (selectError) {

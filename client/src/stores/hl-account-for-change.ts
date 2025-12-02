@@ -11,6 +11,7 @@ export const useHlAccountForChangeStore = defineStore('hlAccountForChange', {
     accountList: [] as AccountForChange[],
 
     packId: null as string | null,
+    language: 'CN',
   }),
   getters: {},
   actions: {
@@ -27,12 +28,15 @@ export const useHlAccountForChangeStore = defineStore('hlAccountForChange', {
     },
     async applyAccountForChange() {
       try {
-        if (!this.packId) {
-          Notify.error('請選擇包');
+        if (!this.packId || !this.language) {
+          Notify.error('請選擇包和語言');
           return;
         }
         Loading.show();
-        await Services.postHlApplyAccountForChange({ packId: this.packId! });
+        await Services.postHlApplyAccountForChange({
+          packId: this.packId!,
+          language: this.language!,
+        });
         await this.getAccountList();
         Notify.success('申請成功');
         Loading.hide();

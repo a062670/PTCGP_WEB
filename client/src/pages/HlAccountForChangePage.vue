@@ -11,6 +11,16 @@
           <q-select
             dense
             outlined
+            v-model="pageStore.language"
+            :options="languageOptions"
+            label="語言"
+            emit-value
+            map-options
+            style="width: 130px"
+          />
+          <q-select
+            dense
+            outlined
             v-model="pageStore.packId"
             :options="packOptions"
             label="包"
@@ -37,7 +47,7 @@
           <tbody class="text-center">
             <tr v-for="account in pageStore.accountList" :key="account.id">
               <td>{{ account.nick }}</td>
-              <td>{{ account.language }}</td>
+              <td>{{ languageInfo[account.language] }}</td>
               <td>{{ packName[account.pack_id] }}</td>
               <td class="q-gutter-sm">
                 <q-btn color="primary" label="奴隸契約書" @click="pageStore.downloadXml(account)" />
@@ -61,6 +71,7 @@ import { useRouter } from 'vue-router';
 import { useUserDataStore } from 'src/stores/user-data';
 import { useHlAccountForChangeStore } from 'stores/hl-account-for-change';
 import packName from 'src/data/packName';
+import languageInfo from 'src/data/languageInfo';
 
 const userDataStore = useUserDataStore();
 const pageStore = useHlAccountForChangeStore();
@@ -77,6 +88,14 @@ for (const packId in packName) {
   packOptions.value.push({
     label: packName[packId],
     value: packId,
+  });
+}
+
+const languageOptions = ref([]);
+for (const language in languageInfo) {
+  languageOptions.value.push({
+    label: languageInfo[language],
+    value: language,
   });
 }
 

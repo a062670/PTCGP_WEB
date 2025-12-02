@@ -120,7 +120,7 @@ export const getHlAccountListForChange = async () => {
 };
 
 // post /api/hl/applyAccountForChange
-export const postHlApplyAccountForChange = async (data: { packId: string }) => {
+export const postHlApplyAccountForChange = async (data: { packId: string; language: string }) => {
   const resp = await Api.post('/hl/applyAccountForChange', data);
   return resp;
 };
