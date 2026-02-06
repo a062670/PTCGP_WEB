@@ -475,8 +475,8 @@ app.get("*", async (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
 
-app.listen(80, () => {
-  console.log("Server is running on http://localhost:80");
+app.listen(9487, () => {
+  console.log("Server is running on http://localhost:9487");
 });
 
 // 驗證 auth
